@@ -1,0 +1,15 @@
+.list-group {
+  font-size: 1.5rem;
+}
+
+.todo {
+  color: lightgreen;
+}
+
+.edit {
+  color: lightskyblue;
+}
+
+.delete {
+  color: lightcoral;
+}
