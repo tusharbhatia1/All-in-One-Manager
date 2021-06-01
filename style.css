@@ -1,3 +1,60 @@
+:root {
+  --input-shadow: inset 3px 3px 3px #cbced1, inset -1px -1px 1px #cbced1;
+  --btn-shadow: 6px 6px 6px #cbced1, -2px -2px 2px white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color: #ecf0f3;
+}
+
+.container {
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  /* box-shadow: 4px 4px 10px 0 rgba(0, 0, 2, 0.3); */
+  /* background: #ecf0f3;
+  box-shadow: 6px 6px 9px #cbced1, -6px -6px 9px white; */
+}
+
+input {
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: var(--input-shadow);
+}
+
+button.btn {
+  box-sizing: border-box;
+  border-radius: 30px;
+  box-shadow: 6px 6px 6px #cbced1, -2px -2px 2px white;
+  transition: 0.3s;
+}
+
+button.btn:hover {
+  box-shadow: 2px 2px 2px #cbced1, -1px -1px 1px white;
+}
+
 .list-group {
   font-size: 1.5rem;
 }
@@ -12,4 +69,13 @@
 
 .delete {
   color: lightcoral;
+}
+
+.active,
+#itemsList {
+  box-shadow: 6px 6px 6px #cbced1;
+}
+
+.list-group-item {
+  box-shadow: inset 0.5px 0 0 0 #cbced1;
 }
