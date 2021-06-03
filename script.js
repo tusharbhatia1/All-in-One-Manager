@@ -2,10 +2,23 @@ const form = document.querySelector("#itemForm");
 const inputItem = document.querySelector("#itemInput");
 const itemsList = document.querySelector("#itemsList");
 const filters = document.querySelectorAll(".nav-item");
+const alertDiv = document.querySelector("#message");
 
 // create empty item list
 
 let todoItems = [];
+
+// alert messages
+const alertMessage = function (message, className) {
+    alertDiv.innerHTML = message;
+    alertDiv.classList.add(className, "show");
+    alertDiv.classList.remove("hide");
+    setTimeout(() => {
+        alertDiv.classList.add("hide");
+        alertDiv.classList.remove(className, "show");
+    }, 3000);
+    return;
+};
 
 // delete item onclick
 const removeItem = function(item) {
@@ -20,6 +33,25 @@ const updateItem = function(currentItemIndex, value) {
     todoItems.splice(currentItemIndex, 1, newItem);
     setLocalStorage(todoItems);
 }
+
+// Filter Items
+const getItemsFilter = function (type) {
+    let filterItems = [];
+    
+    switch (type) {
+        case "todo":
+            filterItems = todoItems.filter((item) => !item.isDone);
+            break;
+
+        case "done":
+             filterItems = todoItems.filter((item) => item.isDone);
+            break;
+        
+        default:
+            filterItems = todoItems;    
+    }
+    getList(filterItems);
+};
 
 // event handlers for check, edit, delete
 const handleItem = function (itemData){
@@ -38,6 +70,10 @@ const handleItem = function (itemData){
                 setLocalStorage(todoItems);
                 const iconClass = currentItem.isDone ? "bi-check-circle-fill" : "bi-check-circle";
                 this.firstElementChild.classList.replace(currentClass, iconClass);
+
+                // for filtering in real-time
+                const filterValue = document.querySelector('#tabValue').value;
+                getItemsFilter(filterValue);
             });
 
             // edit item
@@ -54,6 +90,7 @@ const handleItem = function (itemData){
                     itemsList.removeChild(item);
                     removeItem(item);
                     setLocalStorage(todoItems);
+                    alertMessage("Selected task has been deleted.", "alert-danger");
                     return todoItems.filter((item) => item != itemData);
                 }
             });
@@ -77,7 +114,13 @@ const getList = function(todoItems) {
             </li>`);
             handleItem(item);
         });
-    };
+    }
+    else{
+        itemsList.insertAdjacentHTML("beforeend",
+             `<li class="list-group-item d-flex justify-content-between align-items-center">
+             <span>No Record Found</span>
+            </li>`);
+    }
 };
 
 const getLocalStorage = function(){
@@ -100,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         e.preventDefault();
         const itemName = inputItem.value.trim();
             if(itemName.length === 0){
-                alert("Please enter name!");
+                alertMessage("Please enter the Task Name.", "alert-danger");
             }
 
             else
@@ -110,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                 if(currentItemIndex){
                     updateItem(currentItemIndex, itemName);
                     document.querySelector('#objIndex').value = "";
+                    alertMessage("The task has been updated.", "alert-warning");
                 }
                 else{
                     const itemObj = {
@@ -119,11 +163,27 @@ document.addEventListener('DOMContentLoaded', () =>{
                     }; 
                     todoItems.push(itemObj);   
                     setLocalStorage(todoItems);
+                    alertMessage("New task has been added.", "alert-success");
                 }
                 getList(todoItems);
             }
             inputItem.value = "";
     });
+
+    // Filtering the nav bars
+    filters.forEach((tab) =>{
+        tab.addEventListener("click", function(e){
+            const tabType = this.getAttribute("data-type");
+            document.querySelectorAll('.nav-link').forEach(nav =>{
+                nav.classList.remove("active");
+            });
+            this.firstElementChild.classList.add("active");
+
+            getItemsFilter(tabType);
+            document.querySelector('#tabValue').value = tabType;
+        });
+    });
+
 
     // Load items from local storage
     getLocalStorage();

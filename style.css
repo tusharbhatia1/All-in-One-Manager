@@ -79,3 +79,20 @@ button.btn:hover {
 .list-group-item {
   box-shadow: inset 0.5px 0 0 0 #cbced1;
 }
+
+.nav-link {
+  transition: 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  opacity: 0.9;
+}
+
+/* alert message */
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
