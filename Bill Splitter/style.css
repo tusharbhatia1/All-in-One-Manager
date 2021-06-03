@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap");
+
+:root {
+  --space-cadet: #273469;
+  --space-cadet-dark: #1e2749;
+  --lavender-blue: #e4d9ff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  background: var(--space-cadet-dark);
+  font-size: 1.05rem;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.bill-divider-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 7px;
+
+  /* background-color: rgb(222, 234, 246);
+  box-shadow: rgb(190, 203, 216) 3px 3px 6px 0px inset,
+    rgb(243, 249, 255) -3px -3px 6px 0px inset;
+  -webkit-box-shadow: rgb(190, 203, 216) 3px 3px 6px 0px inset,
+    rgb(243, 249, 255) -3px -3px 6px 0px inset;
+  border-radius: 12px;
+  -webkit-border-radius: 12px; */
+}
+
+.title {
+  background: var(--space-cadet);
+  padding: 0.7rem 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+.title h1 {
+  text-align: center;
+  color: #fff;
+}
+
+/* to hide scrollers from number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.bill-inputs,
+.bill-output {
+  padding: 2rem 2.5rem;
+}
+
+.bill-inputs {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  padding: 0.5rem 0;
+}
+
+.form-group label {
+  text-transform: uppercase;
+  display: inline-block;
+  padding-bottom: 0.2rem;
+}
+
+.form-control {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 1.5px solid var(--lavender-blue);
+  transition: all 0.4s ease;
+  --webkit-transition: all 0.4s ease;
+  --moz-transition: all 0.4s ease;
+  --ms-transition: all 0.4s ease;
+  --o-transition: all 0.4s ease;
+}
+
+.form-control:focus {
+  outline: 0;
+  border-color: var(--space-cadet);
+}
+
+#calc-btn {
+  padding: 0.9rem 2.2rem;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 1.25rem;
+  background: var(--space-cadet-dark);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  --webkit-transition: all 0.4s ease;
+  --moz-transition: all 0.4s ease;
+  --ms-transition: all 0.4s ease;
+  --o-transition: all 0.4s ease;
+  border-radius: 7px;
+}
+
+#calc-btn:focus {
+  outline: 0;
+}
+
+#calc-btn:hover {
+  background: var(--space-cadet);
+}
+
+.text-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem;
+}
+
+.text-group h3 {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.text-group:nth-child(1) h3 {
+  font-weight: 700;
+}
+
+.text-group span {
+  font-weight: 600;
+}
