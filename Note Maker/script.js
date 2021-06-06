@@ -73,7 +73,7 @@ function createNote(noteItem){
   div.classList.add("note-item");
   div.setAttribute("data-id", noteItem.id);
   div.innerHTML = `
-        <h3>${noteItem.title}</h3>
+        <h3 ">${noteItem.title}</h3>
         <p>${noteItem.content}</p>
         <button type = "button" class = "btn delete-note-btn">
         <span><i class = "fas fa-trash"></i></span>

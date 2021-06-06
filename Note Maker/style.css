@@ -58,6 +58,11 @@ body {
   resize: none;
 }
 
+/* #note-search {
+  width: 50%;
+  margin-top: 5px;
+} */
+
 #note-title:focus,
 #note-content:focus {
   outline: 0;
@@ -132,3 +137,9 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* @media (max-width: 700px) {
+  #note-search {
+    width: 100%;
+  }
+} */
