@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="note">
+        <h2>Note Maker</h2>
+        <div class="note-input">
+            <h3>Add A New Note</h3>
+            <div class="note-wrapper">
+                <input type="text" id="note-title" placeholder="Enter Note Title">
+                <textarea name="" id="note-content" placeholder="Write your note here......" rows="5"></textarea>
+                <button id="add-note-btn" class="btn" type="button">
+                    <span><i class="fas fa-plus"></i></span>
+                    ADD NOTE
+                </button>
+            </div>
+        </div>
+
+        <div class="note-list">
+        </div>
+
+        <button class="btn" id="delete-all-btn">
+            <span><i class="fas fa-trash"></i></span>
+            Delete All
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
